@@ -24,8 +24,8 @@ jobs:
           source venv/bin/activate
           python main.py
         env:
-          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
+          NOTION_API_KEY: ${{ secret_cmaqYn4iwTE5OovF0NQ8vbOGHD0LMSmo5A8O8GkAyJz }}
+          DATABASE_ID: ${{ f91220b1-c1c8-4948-b926-af1a61afc733 }}
 
       - name: Commit cache changes
         uses: EndBug/add-and-commit@v9
@@ -36,4 +36,4 @@ jobs:
       - name: Push cache changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ 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 }}
