@@ -11,15 +11,17 @@ jobs:
 
       - name: Make changes
         run: |
-          # Crear cambios en el repositorio
           echo "Making some changes" >> example-file.txt
           git add example-file.txt
           git commit -m "Add example-file.txt with a test change" || echo "No changes to commit"
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "Gabriel Varela"
+          git config --global user.email "luisgvarela18@gmail.com"
 
       - name: Push changes
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.name "Gabriel Varela"
-          git config --global user.email "luisgvarela18@gmail.com"
           git push "https://x-access-token:${GH_TOKEN}@github.com/Valug18/Kindle.git"
