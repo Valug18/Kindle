@@ -18,8 +18,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "you@example.com"
+          git config --global user.name "Valug18"
+          git config --global user.email "luisgvarela18@gmail.com"
           git add .
           git commit -m "Commit message"
           git push "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
