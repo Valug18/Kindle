@@ -18,7 +18,7 @@ jobs:
 
       - name: Push changes
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}  # Asegúrate de que este secreto esté configurado correctamente
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           git config --global user.name "Gabriel Varela"
           git config --global user.email "luisgvarela18@gmail.com"
