@@ -1,6 +1,7 @@
 import requests
 import json
 import re
+import os
 
 def create_notion_page(token, database_id, book, highlights, page, date, genre, author=None):
     url = 'https://api.notion.com/v1/pages'
@@ -113,11 +114,10 @@ def read_clippings(file_path):
     return parsed_entries
 
 if __name__ == "__main__":
-    import os
-
-    token = os.getenv('secret_cmaqYn4iwTE5OovF0NQ8vbOGHD0LMSmo5A8O8GkAyJz')
-    database_id = os.getenv('f91220b1-c1c8-4948-b926-af1a61afc733')
-    file_path = 'clippings/My Clippings.txt'
+    # Utilizar los nombres correctos de las variables de entorno
+    token = os.getenv('NOTION_API_KEY')
+    database_id = os.getenv('DATABASE_ID')
+    file_path = 'My Clippings.txt'  # Cambié la ruta para que coincida con la ubicación del archivo
     
     clippings = read_clippings(file_path)
     
