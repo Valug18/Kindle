@@ -1,39 +1,25 @@
-name: Sync Kindle Highlights
-on: [push, workflow_dispatch]
+name: GitHub Push
+
+on: [push]
 
 jobs:
-  sync-highlights:
+  push_changes:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
-      - name: Install dependencies
+      - name: Make changes
         run: |
-          python -m venv venv
-          source venv/bin/activate
-          pip install -r requirements.txt
+          # Comandos para hacer cambios en tu repositorio
+          # Por ejemplo, podrías agregar o modificar archivos aquí.
 
-      - name: Sync highlights
-        run: |
-          source venv/bin/activate
-          python main.py
+      - name: Push changes
         env:
-          NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
-          DATABASE_ID: ${{ secrets.DATABASE_ID }}
-
-      - name: Commit cache changes
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: Commit cache changes
-          add: sync.json
-
-      - name: Push cache changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          git config --global user.name "Your Name"
+          git config --global user.email "you@example.com"
+          git add .
+          git commit -m "Commit message"
+          git push "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}.git"
