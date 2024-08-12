@@ -18,7 +18,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
-          git config --global user.name "Valug18"
+          git config --global user.name "Gabriel Varela"
           git config --global user.email "luisgvarela18@gmail.com"
           git add .
           git commit -m "Commit message"
